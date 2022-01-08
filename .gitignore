@@ -1,0 +1,20 @@
+web/styles.css
+dokumentace/pp.aux
+dokumentace/pp.synctex.gz
+dokumentace/pp.toc
+dokumentace/pp.fdb_latexmk
+dokumentace/pp.fls
+dokumentace/pp.log
+dokumentace/pp.out
+modules/__pycache__/
+.idea/
+__pycache__/
+dokumentace/pp.synctex(busy)
+CLIENT_SECRET.json
+token.json
+keys.txt
+dislike ws.py
+web/
+dokumentace/pp.tex
+modules/ws_comms.py
+old/
