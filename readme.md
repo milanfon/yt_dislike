@@ -82,3 +82,34 @@ CLIENT_SECRET = "HKPFDR-dsgr..."
 Lokální databáze, kterou program využívá je typu **SQLite**. Lokálně ji můžeme upravit například přes utilitu [SQLite Studio](https://sqlitestudio.pl/). 
 
 #### Pomocným programem
+
+Pomocí programu `helper.py` lze dělat akce popsané následujícími argumenty:
+
+- List sledovaných videí `-l` nebo `--list`
+    -  Vypíše seznam sledovaných videí a akce, které se na nich provád. Navíc vypíše i část jejich konfigurace.
+    ```Shell
+    > python .\helper.py --list
+    Video ID        Action comment  Action title    Comment ID
+    ================================================================
+    s5brhEuhBhM     1               0               Ugzo5IzpwK
+    A1CK3LaBPoU     0               1               None
+    ```
+- Přidání sledovaného videa `-a <videoID>` nebo `--add-video=<videoID>`
+    - Přidá nový záznam do tabulky _sledovaných videí_ v databázi.
+    - Příkaz dále funguje jako dialog, kdy se ptá, zda chcete na videu spustit jednotlivé akce a případně na jejich konfiguraci. 
+    ```Shell
+    > python .\helper.py -a 9gQCfFxOHYc
+    Do comment action? [y/n]
+    Insert comment ID:
+    sdfgtdftztttRDfsEF
+    Do title action? [y/n]
+    Insert title format:
+    Toto video dostalo %s disliků
+    ```
+    - _Formát názvu videa_ je v běžném formátovacím tvaru, kdy pro místo, kde se má zobrazit počet disliků využijete zástupný znak `%s`
+
+- Odstranění sledovaného video `-r <videoID>` nebo `--remove-video=<videoID>`
+    - Odstraní sledované video (_řádek_) z tabulky.
+    ```Shell
+    > python .\helper.py --remove-video=9gQCfFxOHYc
+    ```

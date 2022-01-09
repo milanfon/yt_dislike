@@ -7,7 +7,7 @@ DB_FILE = "db/db.sqlite"
 
 def main(argv):
     try:
-        opts, args = go.getopt(argv, "hi:o:a:",["list","add-video="])
+        opts, args = go.getopt(argv, "hla:r:",["list","add-video=", "remove-video="])
     except go.GetoptError:
         print("Unknown arguments!")
         sys.exit(2)
@@ -20,6 +20,8 @@ def main(argv):
             listVids()
         elif opt in ("-a", "--add-video"):
             addTrackedVideo(arg)
+        elif opt in ("-r", "--remove-video"):
+            db.untrackVideo(arg)
 
 def listVids() -> None:
     videos = db.getTrackedVideos()["videos"]

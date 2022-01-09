@@ -40,12 +40,18 @@ class localDB:
         self.con.commit()
 
     def trackVideo(self, videoID, action_comment, action_title, conf_comment, conf_title) -> None:
-        self.cur.execute('''INSERT INTO tracked_videos (videoID, action_comment, action_title, conf_title_format, conf_comment_id)
+        self.cur.execute('''INSERT INTO tracked_videos (videoID, action_comment, action_title, conf_comment_id, conf_title_format)
         VALUES (:id, :ac, :at, :cc, :ct)''', {
             "id": videoID,
             "ac": action_comment,
             "at": action_title,
             "cc": conf_comment,
             "ct": conf_title
+        })
+        self.con.commit()
+
+    def untrackVideo(self, videoID):
+        self.cur.execute("DELETE FROM tracked_videos WHERE videoID=:id", {
+            "id": videoID
         })
         self.con.commit()
