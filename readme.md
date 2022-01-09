@@ -77,3 +77,8 @@ CLIENT_SECRET = "HKPFDR-dsgr..."
 
 ### Přidání sledovaných videí
 
+#### Úpravou databáze
+
+Lokální databáze, kterou program využívá je typu **SQLite**. Lokálně ji můžeme upravit například přes utilitu [SQLite Studio](https://sqlitestudio.pl/). 
+
+#### Pomocným programem

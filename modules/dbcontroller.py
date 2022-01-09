@@ -38,3 +38,14 @@ class localDB:
             "updated": now.strftime("%d/%m/%Y %H:%M:%S")
         })
         self.con.commit()
+
+    def trackVideo(self, videoID, action_comment, action_title, conf_comment, conf_title) -> None:
+        self.cur.execute('''INSERT INTO tracked_videos (videoID, action_comment, action_title, conf_title_format, conf_comment_id)
+        VALUES (:id, :ac, :at, :cc, :ct)''', {
+            "id": videoID,
+            "ac": action_comment,
+            "at": action_title,
+            "cc": conf_comment,
+            "ct": conf_title
+        })
+        self.con.commit()
