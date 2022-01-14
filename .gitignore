@@ -18,3 +18,4 @@ web/
 dokumentace/pp.tex
 modules/ws_comms.py
 old/
+preview.http
